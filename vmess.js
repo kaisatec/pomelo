@@ -524,6 +524,12 @@ function formatLinkInfo(){
 	aStringArray.clear;
 	bStringArray.clear;
 
+	console.log('------>>'+aFileArray.length);
+	console.log('------>>'+bFileArray.length);
+
+	console.log('------>>'+aStringArray.length);
+	console.log('------>>'+bStringArray.length);
+
 	var tArray=[];
 	var tAmount=0;
 
@@ -540,15 +546,16 @@ function formatLinkInfo(){
 	var maxA=5;
 	var maxB=10;
 
-	var tDivA=tAmount/maxA;
+	var tDivA=Math.floor( tAmount/maxA);
 	var tModA=tAmount % maxA;
 	if (tModA!=0) tDivA=tDivA+1;
 
 	//-----------------------------------------------------
 
-	var tDivB=tAmount/maxB;
+	var tDivB=Math.floor(tAmount/maxB);
 	var tModB=tAmount % maxB;
 	if (tModB!=0) tDivB=tDivB+1;
+	console.log(tDivA+"|"+tModA+"|"+tDivB+"|"+tModB+"|");
 
 
 	var amountAFileArray=tDivA;
@@ -628,11 +635,11 @@ async function writeLinkInfo(){
 
 	console.log('------>>'+aFileArray.length);
 	for(var i=0;i<aFileArray.length;i++){
-		console.log(aStringArray[i]);
+		//console.log(aStringArray[i]);
 	}
-	console.log('------');
+	console.log('------>>'+bFileArray.length);
 	for(var i=0;i<bFileArray.length;i++){
-		console.log(bStringArray[i]);
+		//console.log(bStringArray[i]);
 	}
 	console.log('------');
 
