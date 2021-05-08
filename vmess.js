@@ -519,16 +519,12 @@ function formatLinkInfo(){
 	//console.log("============");
  
 
-	aFileArray.clear;
-	bFileArray.clear;
-	aStringArray.clear;
-	bStringArray.clear;
+	aFileArray=[];
+	bFileArray=[];
+	aStringArray=[];
+	bStringArray=[];
 
-	console.log('------>>'+aFileArray.length);
-	console.log('------>>'+bFileArray.length);
-
-	console.log('------>>'+aStringArray.length);
-	console.log('------>>'+bStringArray.length);
+ 
 
 	var tArray=[];
 	var tAmount=0;
