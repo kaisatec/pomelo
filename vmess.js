@@ -639,7 +639,7 @@ async function writeLinkInfo(){
 	}
 	console.log('------');
 
-	return;
+ 
 
 	await fs.writeFile(aFileString, aString, function (err) {console.log("a0");});
 	await fs.writeFile(bFileString, bString, function (err) {console.log("b0");});
