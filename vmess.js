@@ -111,9 +111,7 @@ var globalStep=0;
 var d=0;
  
 var aaa="888\r\n9999";
-console.log(aaa);
-console.log(aaa.length);
-console.log(aaa[4]=='\r');
+ 
  
 function encodeString(s){
  
@@ -137,20 +135,18 @@ function encodeString(s){
 
 				returnString=returnString+t+"\r\n";
 				if(step==7){
-				//	console.log(ttt);
+			 
 				}
 				if(step==8){
-				//	console.log(ttt);
+			 
 				}
 				step=step+1;
-				console.log("~~~"+step);
+				 
 				if(step==7){
-					//console.log(t1);
-					//console.log(t);
+			 
 				}
 				if(step==8){
-					//console.log(t1);
-				//	console.log(t);
+	 
 				}
 				ttt="";
 				t="";
@@ -161,12 +157,12 @@ function encodeString(s){
 
 			returnString=returnString+t+"\n";
 			step=step+1;
-			console.log("!!!"+step);
+	 
 			if(step==7){
-			//	console.log(t);
+			 
 			}
 			if(step==8){
-			//	console.log(t);
+		 
 			}
 			t="";
 			
@@ -176,15 +172,8 @@ function encodeString(s){
 			var k=step % 10;
 			var m=valueArray[k] ;
 			var p=n+m +i ;
-			 
-			//if(p>wordStringMax.length-1){ 
-			//	p=p % wordStringMax.length;//+1-1;
-			//}
 
-			 
 			p=p % wordStringMax.length;
-			 
-			//console.log(p);
 			t=t+wordStringMax[p]; 
 			t1=t1+c;
 
@@ -201,8 +190,6 @@ function encodeString(s){
 function decodeS(s){
  
 	var returnString="";
- 
-	console.log("=======================");
 	var t="";
 	var t1="";
 	var step=0;
@@ -215,8 +202,6 @@ function decodeS(s){
 
 		if(c=='\r'){
 
-			//console.log("=1");
-
 		    i=i+1;
 			c=s[i];
 			if(c=='\n'){
@@ -224,7 +209,6 @@ function decodeS(s){
 				returnString=returnString+t+"\r\n";
 				step=step+1;
 				t="";
-				//console.log(ttt);
 				ttt="";
 			
 			}
@@ -234,7 +218,6 @@ function decodeS(s){
 			returnString=returnString+t+"\n";
 			step=step+1;
 			t="";
-			//console.log(ttt);
 			ttt="";
 			
 		}else{
@@ -250,44 +233,17 @@ function decodeS(s){
                     var n =p+v - m - i;
                     if (n == wordStringMax.length) n = 0;
                     t = t + wordStringMax[n];
-                    
-		 
-			//ttt=ttt + " " + n  + " " + k  + " " + m ;
- 
-		 
 
 		}
- 
-
 	}
     
 	return returnString;// t;
  
 }
- 
-/*
- 
-var s4="";
-var s3="";
-s3="vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogImh0dHBzOi8vZ2l0LmlvL3Y5OTk5IOe+juWbvSIsDQogICJhZGQiOiAidXNhLXByLnR5MTAyNS5tbCIsDQogICJwb3J0IjogIjQ0MyIsDQogICJpZCI6ICJjZGI5YjlmMy0yMTQzLTQ0ZjAtODJjYy0yZGY1MDIyMjBkMzAiLA0KICAiYWlkIjogIjMiLA0KICAibmV0IjogIndzIiwNCiAgInR5cGUiOiAibm9uZSIsDQogICJob3N0IjogInVzYS1wci50eTEwMjUubWwiLA0KICAicGF0aCI6ICIvMTM2YzJiMmY0NTNiMy8iLA0KICAidGxzIjogInRscyINCn0=\r\nvmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogImh0dHBzOi8vZ2l0LmlvL3Y5OTk5IOe+juWbvSIsDQogICJhZGQiOiAiMTAzLjEyOS4xOTYuMTU2IiwNCiAgInBvcnQiOiAiODA4MCIsDQogICJpZCI6ICJjNjM1MTA5MC02NmVmLTM5NmQtODhkZS0xMWUyMzQ0NzdiMTQiLA0KICAiYWlkIjogIjIiLA0KICAibmV0IjogIndzIiwNCiAgInR5cGUiOiAibm9uZSIsDQogICJob3N0IjogIiIsDQogICJwYXRoIjogIi9jbjJoZyIsDQogICJ0bHMiOiAiIg0KfQ==\r\nvmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogImh0dHBzOi8vZ2l0LmlvL3Y5OTk5IOe+juWbvSIsDQogICJhZGQiOiAiY2RuLWJhaWR1MDAxLnhpYW9ob3V6aS5jbHViIiwNCiAgInBvcnQiOiAiODAiLA0KICAiaWQiOiAiZmFkYmUyZGYtMGFlZC0zMjk5LWJmNWQtYzdmNjlhZDI3ODI0IiwNCiAgImFpZCI6ICIxIiwNCiAgIm5ldCI6ICJ3cyIsDQogICJ0eXBlIjogIm5vbmUiLA0KICAiaG9zdCI6ICIzNjA2MjItd3U3LmJhYnlwYWluYS5jb20iLA0KICAicGF0aCI6ICIvdjJyYXkiLA0KICAidGxzIjogIiINCn0=\r\n";
 
-
-s4=encodeString(s3 );
-  	
-console.log(s4); 
-console.log("+++++++++++++++++++++++++++++++++++++++");
-var s5=decodeS(s4 );
-console.log(s5); 
-//console.log(s3.length); 
-////console.log(s5.length); 
-console.log(s5==s3); 
-
-return;
-  
-*/
- 
 function decodeHTML(index, htmlString){
-	console.log("! "+index);
+
+ 
 	switch(index){
 		case 0:{//host : 'github.com',
                 //port : 443,
@@ -296,7 +252,7 @@ function decodeHTML(index, htmlString){
 			var s=htmlString;
 			var exitNumber=false;
 			var errorNumber=false;
-			console.log("0:"+index);
+		 
 			var tStringArray=[];
 			do{
 				var x=s.indexOf('vmess://');
@@ -312,7 +268,6 @@ function decodeHTML(index, htmlString){
 				 
 				if(x1==-1){
 					//errorNumber=true;
-				 
 					break;
 				}
 				var ts=sub.substring(0,x1) ;
@@ -327,7 +282,6 @@ function decodeHTML(index, htmlString){
 				vmessListString=vmessListString + tems; 
 				vmessStringArray.push(tStringArray);
 				globalStep=globalStep+1;
-				//console.log("---------------"+vmessStringArray[vmessStringArray.length-1].length);
 			 
 			} 
 			break;
@@ -349,7 +303,6 @@ function decodeHTML(index, htmlString){
 				}
 				var l=s.length; 
 				var sub=s.substring(x,l );
-				//console.log(sub);
 				var x1=sub.indexOf('</code>');
 				if(x1==-1){
 					errorNumber=true;
@@ -377,14 +330,10 @@ function decodeHTML(index, htmlString){
 				}
 
 			}
-		 
-			//console.log(tems); 
 			if(errorNumber==false){
  
 				vmessListString=vmessListString+tems; 
 				vmessStringArray.push(tStringArray);
-				//console.log("---------------"+vmessStringArray[vmessStringArray.length-1].length);
-			 
 				globalStep=globalStep+1;
 			} 
 		
@@ -408,7 +357,6 @@ function decodeHTML(index, htmlString){
 				}
 				var l=s.length; 
 				var sub=s.substring(x,l );
-				//console.log(sub);
 				var x1=sub.indexOf('</code>');
 				if(x1==-1){
 					errorNumber=true;
@@ -418,18 +366,12 @@ function decodeHTML(index, htmlString){
 			 
 				break;
 
-			}while (exitNumber==false);
-		 
-			//console.log(tems); 
+			}while (exitNumber==false); 
 			if(errorNumber==false){
 			 
 				vmessListString=vmessListString+tems; 
 				globalStep=globalStep+1;
-			 
 				vmessStringArray.push(tStringArray);
-				//console.log("---------------"+vmessStringArray[vmessStringArray.length-1].length);
-			 
-
 			} 
 		
 			break;
@@ -459,7 +401,6 @@ function decodeHTML(index, htmlString){
 				 
 				if(x1==-1){
 					errorNumber=true;
-				 
 					break;
 				}
  
@@ -475,20 +416,13 @@ function decodeHTML(index, htmlString){
 			 
 				vmessListString=vmessListString+tems; 
 				globalStep=globalStep+1;
-			 
 				vmessStringArray.push(tStringArray);
-				//console.log("---------------"+vmessStringArray[vmessStringArray.length-1].length);
-			 
 
 			} 
 			break;
 		}
 
- 
-
-
 	}
-
 
  }
  var fileString0="";
@@ -504,35 +438,24 @@ function decodeHTML(index, htmlString){
  var bAmount=0;
  var bFileString="";
  var bString="";
-  
- //------------------------------------------------------------------------------------------
- //vmessStringArray tStringArray
-
-
+//------------------------------------------------------------------------------------------
 function formatLinkInfo(){
-
-  
 
 	aFileArray=[];
 	bFileArray=[];
 	aStringArray=[];
 	bStringArray=[];
-
- 
-
 	var tArray=[];
 	var tAmount=0;
 
 	for(var j=0;j<vmessStringArray.length;j++){
 		tAmount=tAmount+vmessStringArray[j].length;
-		//tArray.push()
 		for(var i=0;i<vmessStringArray[j].length;i++){
  
 			tArray.push(vmessStringArray[j][i]);//tArray[i]+'\r\n';
 
 		}
 	}
-
 	var maxA=5;
 	var maxB=10;
 
@@ -623,26 +546,24 @@ function formatLinkInfo(){
 
 async function writeLinkInfo(){
 
-	console.log('------>>'+aFileArray.length);
+
 	for(var i=0;i<aFileArray.length;i++){
-		//console.log(aStringArray[i]);
+		
 	}
-	console.log('------>>'+bFileArray.length);
+
 	for(var i=0;i<bFileArray.length;i++){
-		//console.log(bStringArray[i]);
+		
 	}
-	console.log('------');
 
- 
 
-	await fs.writeFile(aFileString, aString, function (err) {console.log("a0");});
-	await fs.writeFile(bFileString, bString, function (err) {console.log("b0");});
+	await fs.writeFile(aFileString, aString, function (err) { });
+	await fs.writeFile(bFileString, bString, function (err) { });
 
 	for(var i=0;i<aFileArray.length;i++){
 		if(i<=10){
 
 			await fs.writeFile(aFileArray[i], encodeString( aStringArray[i]), function (err) {
-				//console.log("a"+i.toString());
+			 
 			});
 
 		}
@@ -653,7 +574,7 @@ async function writeLinkInfo(){
 
 		if(i<=10){
 			await fs.writeFile(bFileArray[i], encodeString( bStringArray[i]), function (err) {
-				//console.log("b"+i.toString());
+
 			});
 			
 		}
@@ -664,10 +585,10 @@ async function writeLinkInfo(){
 	execProcess("sh command1.sh", function(err, response){// 
 	//execProcess("command1.bat", function(err, response){//sh command1.sh
 			if(!err){
-				console.log(response);
+	
 				//return callbackFunction();
 			}else {
-				console.log(err);
+			
 				//return callbackFunction();
 			}
 		});
@@ -678,23 +599,12 @@ async function writeLinkInfo(){
  
 }
 
- /*
-	//await fs.writeFile('url.txt', encodeString( vmessListString), function (err) {console.log("uuuu000");}); 
-	//await fs.writeFile(aFileArray[0], encodeString( vmessListString), function (err) {console.log("uuuua");});
-	//await fs.writeFile(bFileArray[0], encodeString( vmessListString), function (err) {console.log("uuuub");});
-	//await fs.writeFile(aFileArray[0], encodeString( aStringArray[0]), function (err) {console.log("a");});
-	//await fs.writeFile(aFileArray[1], encodeString( aStringArray[1]), function (err) {console.log("a");});
-	 
-	//await fs.writeFile(bFileArray[0], encodeString( bStringArray[0]), function (err) {console.log("a");});
-	//await fs.writeFile(bFileArray[1], encodeString( bStringArray[1]), function (err) {console.log("a");});
-
- */
+ 
  
  async function getCall(index, isWriteToFile, callbackFunction) {
 
 	var options=optionsArray[index];
-	console.log("get call "+index);
-	console.log("--- "+options.host);
+ 
     //initialize options values, the value of the method can be changed to POST to make https post calls
     //var userAccessToken = 'CAAKoIMGu5SAyfOyVhugi7cZAaZA1kHzjrdLvtPlndoKzMJ8xZBtR3YV2iX39FSnhxK1lvtfYXO5FvcbK4MVGJphxeYDZC7HJ5FCmhOr2Ys8ZBG9qYNRSfFGuzoeRgwZBdliKvoW6YPl41b8i3dfrTpR98gFAm6qag9vYM2yD0aEv47fnWQWF1SoXRs6PFFrFu5XOe';
     //var appAccessToken = '24562343562751562|hPEXIpDl0CXt0tNJ';
@@ -708,8 +618,7 @@ async function writeLinkInfo(){
 			str += data;
 		});
 		res.on("end", function() {
-			//decodeHTML_Alvin9999(str);
-			console.log("---html");
+		 
 			decodeHTML(index, str);
 			console.clear;
 
@@ -745,10 +654,7 @@ async function writeLinkInfo(){
 	 
     getReq.on('error', function(err){
 
-
-		//decodeHTML(index, str);
 		console.log("Error: ", err);
-
 		var t=[];
 		vmessStringArray.push(t);
 
@@ -873,53 +779,17 @@ app.post('/upload/', async (req, res) => {
 
             //Use the name of the input field (i.e. "avatar") to retrieve the uploaded file
 			let a = req.files.file;
-			console.log(req.files);
-			/*
-			for(var i=0;i<req.files.length-1;i++){
-
-				console.log(req.files[i]);
-
-			}
-			*/
-            //Use the mv() method to place the file in upload directory (i.e. "uploads")
+	 
+ 
 			a.mv('./' + a.name);
-			console.log("1");
-			console.log(a);
-			console.log("2");
 		 
-			/*
-			setInterval(function() {
-				execProcess.result("command1.bat", function(err, response ){//sh command1.sh
-					if(!err){
-						console.log(response );
-					//	return callbackFunction();
-					}else {
-						console.log(err);
-					//	return callbackFunction();
-					}
-	  
-				});
-			  }, 100);
-
-			  */
-
+		 
 			res.send({
 				status: false,
 				message: 'git'
 			});
 
-			/*
-
-			res.send({
-				status: true,
-				message: 'File is uploaded',
-				data: {
-					name: a.name,
-					mimetype: a.mimetype,
-					size: a.size
-				}
-			});
-			*/
+		 
 
              
         }
@@ -946,197 +816,4 @@ app.listen(process.env.PORT || 3002, function () {
   });
   
 
-
-//---------------------------------------------------------------------------
-/*
- 
-//var interval = setInterval(getCall(0), 60*1000);
- 
-//  clearInterval(interval);
-
- 
- 
-  var http=require('http');
-  http.get('https://github.com/Alvin9999/new-pac/wiki/v2ray%E5%85%8D%E8%B4%B9%E8%B4%A6%E5%8F%B7', function(res){
-	   var str = '';
-	   console.log('Response is '+res.statusCode);
-
-	   res.on('data', function (chunk) {
-			  str += chunk;
-		});
-
-	   res.on('end', function () {
-			console.log(str);
-	   });
-
- })
-*/
-
-
-
-			/*
-			if(isWriteToFile){
-
-				if (bak=='') { 
-					fs.writeFile('url.txt', vmessListString, function (err) {
-						//console.log(vmessListString);
-						if (err){
-							
-							console.log(err);
-							return callbackFunction();
-						}  
-						console.log('ok');
-						bak=vmessListString; 
-					 
-					//	execProcess.result("command1.bat", function(err, response){//sh command1.sh
-						//	if(!err){
-						//		console.log(response);
-						//		return callbackFunction();
-						//	}else {
-						//		console.log(err);
-						//		return callbackFunction();
-						//	}
-					//	});
-					 
-						return callbackFunction();
-	
-					  });
-	
-				}
-					
-				else{
-	
-					if(vmessListString!=bak){
-				 
-						var today = new Date();
-						var time = today.getFullYear()+'/'+today.getMonth()+'/'+today.getDay()+' '+ today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-						
-						console.log('change on time:'+time.toString());
-						fs.writeFile('url.txt', vmessListString, function (err) {
-							if (err) {
-								console.log(err);
-								return callbackFunction();
-							}
-							 console.log('ok');
-							bak=vmessListString; 
-							execProcess.result("command1.bat", function(err, response){//sh command1.sh
-								if(!err){
-									console.log(response);
-									return callbackFunction();
-								}else {
-									console.log(err);
-									return callbackFunction();
-								}
-							});
-	
-						  });
-
-					}else{
-						var today = new Date();
-						var time = today.getFullYear()+'/'+today.getMonth()+'/'+today.getDay()+' '+ today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-						console.log('same:'+time.toString());
-						return callbackFunction();
-					 
-					}
-					 
-	
-				}
-				 
-
-
-			}else{
-
-				return callbackFunction();
-			}
-
-
-
-			*/
- 
-			//return callbackFunction;    
-
-			 
-			//clipboardy.writeSync(vmessListString);
-			 
-			//clipboardy.readSync();
-
-
-
-
-						 
-		 
-				/*
-			 
-				fs.writeFile('url.txt', encodeString( vmessListString), function (err) {
-
-					if (err) {
-						console.log(err);
-						return callbackFunction();
-					}
- 
- 
-					return callbackFunction();
- 
-
-				});
-			 
-				 
- 
-					execProcess("sh command1.sh", function(err, response){// 
-					//execProcess("command1.bat", function(err, response){//sh command1.sh
-						if(!err){
-							console.log(response);
-							return callbackFunction();
-						}else {
-							console.log(err);
-							return callbackFunction();
-						}
-					});
-
-					*/
-					 
-				//});
- 
- 
-	//getCall(0, true,function(){
-	 	//getCall(1,false,function(){
-	 		//getCall(2,false,function(){
-	 			//getCall(3,true,function(){
-			
-					//console.log("uuuu1");
-					//process.exit(1);
-					//const timeoutObj = setTimeout(() => {
-
-						//console.log("uuuu");
-						//if(isRun) startToRun();
-
-					 // }, 7200);
-
- 		    	//});
-	 		//});
-	 	//});
-	//});
-
-
-
-	/*
- 
-var s4="";
-var s3="";
-s3="vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogImh0dHBzOi8vZ2l0LmlvL3Y5OTk5IOe+juWbvSIsDQogICJhZGQiOiAidXNhLXByLnR5MTAyNS5tbCIsDQogICJwb3J0IjogIjQ0MyIsDQogICJpZCI6ICJjZGI5YjlmMy0yMTQzLTQ0ZjAtODJjYy0yZGY1MDIyMjBkMzAiLA0KICAiYWlkIjogIjMiLA0KICAibmV0IjogIndzIiwNCiAgInR5cGUiOiAibm9uZSIsDQogICJob3N0IjogInVzYS1wci50eTEwMjUubWwiLA0KICAicGF0aCI6ICIvMTM2YzJiMmY0NTNiMy8iLA0KICAidGxzIjogInRscyINCn0=\r\nvmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogImh0dHBzOi8vZ2l0LmlvL3Y5OTk5IOe+juWbvSIsDQogICJhZGQiOiAiMTAzLjEyOS4xOTYuMTU2IiwNCiAgInBvcnQiOiAiODA4MCIsDQogICJpZCI6ICJjNjM1MTA5MC02NmVmLTM5NmQtODhkZS0xMWUyMzQ0NzdiMTQiLA0KICAiYWlkIjogIjIiLA0KICAibmV0IjogIndzIiwNCiAgInR5cGUiOiAibm9uZSIsDQogICJob3N0IjogIiIsDQogICJwYXRoIjogIi9jbjJoZyIsDQogICJ0bHMiOiAiIg0KfQ==\r\nvmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogImh0dHBzOi8vZ2l0LmlvL3Y5OTk5IOe+juWbvSIsDQogICJhZGQiOiAiY2RuLWJhaWR1MDAxLnhpYW9ob3V6aS5jbHViIiwNCiAgInBvcnQiOiAiODAiLA0KICAiaWQiOiAiZmFkYmUyZGYtMGFlZC0zMjk5LWJmNWQtYzdmNjlhZDI3ODI0IiwNCiAgImFpZCI6ICIxIiwNCiAgIm5ldCI6ICJ3cyIsDQogICJ0eXBlIjogIm5vbmUiLA0KICAiaG9zdCI6ICIzNjA2MjItd3U3LmJhYnlwYWluYS5jb20iLA0KICAicGF0aCI6ICIvdjJyYXkiLA0KICAidGxzIjogIiINCn0=\r\n";
-
-
-s4=encodeString(s3 );
-  	
-console.log(s4); 
-console.log("+++++++++++++++++++++++++++++++++++++++");
-var s5=decodeS(s4 );
-console.log(s5); 
-//console.log(s3.length); 
-////console.log(s5.length); 
-console.log(s5==s3); 
-
-return;
-  
-*/
  
