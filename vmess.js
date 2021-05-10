@@ -327,7 +327,7 @@ function decodeHTML(index, htmlString){
 				vmessListString=vmessListString + tems; 
 				vmessStringArray.push(tStringArray);
 				globalStep=globalStep+1;
-				console.log("---------------"+vmessStringArray[vmessStringArray.length-1].length);
+				//console.log("---------------"+vmessStringArray[vmessStringArray.length-1].length);
 			 
 			} 
 			break;
@@ -383,7 +383,7 @@ function decodeHTML(index, htmlString){
  
 				vmessListString=vmessListString+tems; 
 				vmessStringArray.push(tStringArray);
-				console.log("---------------"+vmessStringArray[vmessStringArray.length-1].length);
+				//console.log("---------------"+vmessStringArray[vmessStringArray.length-1].length);
 			 
 				globalStep=globalStep+1;
 			} 
@@ -427,7 +427,7 @@ function decodeHTML(index, htmlString){
 				globalStep=globalStep+1;
 			 
 				vmessStringArray.push(tStringArray);
-				console.log("---------------"+vmessStringArray[vmessStringArray.length-1].length);
+				//console.log("---------------"+vmessStringArray[vmessStringArray.length-1].length);
 			 
 
 			} 
@@ -477,7 +477,7 @@ function decodeHTML(index, htmlString){
 				globalStep=globalStep+1;
 			 
 				vmessStringArray.push(tStringArray);
-				console.log("---------------"+vmessStringArray[vmessStringArray.length-1].length);
+				//console.log("---------------"+vmessStringArray[vmessStringArray.length-1].length);
 			 
 
 			} 
@@ -511,13 +511,7 @@ function decodeHTML(index, htmlString){
 
 function formatLinkInfo(){
 
- 
-	//console.log("============");
-	//console.log(vmessStringArray[0].length);
-	//console.log(vmessStringArray[1].length);
-	//console.log(vmessStringArray[2].length);
-	//console.log("============");
- 
+  
 
 	aFileArray=[];
 	bFileArray=[];
