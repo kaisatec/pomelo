@@ -665,6 +665,7 @@ async function writeLinkInfo(){
 		}
  
 	}
+	/*
   
 	execProcess("sh command1.sh", function(err, response){// 
 	//execProcess("command1.bat", function(err, response){//sh command1.sh
@@ -679,6 +680,7 @@ async function writeLinkInfo(){
 
 	 
 
+		*/
  
 }
 
