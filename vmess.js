@@ -709,6 +709,7 @@ async function writeLinkInfo(){
 		});
 		res.on("end", function() {
 			//decodeHTML_Alvin9999(str);
+			console.log("---html");
 			decodeHTML(index, str);
 			console.clear;
 
