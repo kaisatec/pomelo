@@ -145,11 +145,11 @@ function encodeString(s){
 				step=step+1;
 				console.log("~~~"+step);
 				if(step==7){
-					console.log(t1);
-					console.log(t);
+					//console.log(t1);
+					//console.log(t);
 				}
 				if(step==8){
-					console.log(t1);
+					//console.log(t1);
 				//	console.log(t);
 				}
 				ttt="";
