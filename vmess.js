@@ -598,9 +598,11 @@ async function writeLinkInfo(){
 	//execProcess("command1.bat", function(err, response){//sh command1.sh
 			if(!err){
 	
+				console.log('execute ok');
 				//return callbackFunction();
 			}else {
 			
+				console.log('execute error');
 				//return callbackFunction();
 			}
 		});
