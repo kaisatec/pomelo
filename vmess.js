@@ -468,7 +468,7 @@ function formatLinkInfo(){
 	var tDivB=Math.floor(tAmount/maxB);
 	var tModB=tAmount % maxB;
 	if (tModB!=0) tDivB=tDivB+1;
-	console.log(tDivA+"|"+tModA+"|"+tDivB+"|"+tModB+"|");
+	console.log(tAmount+'|'+maxA+'|'+maxB+'|'+tDivA+"|"+tModA+"|"+tDivB+"|"+tModB+"|");
 
 
 	var amountAFileArray=tDivA;
