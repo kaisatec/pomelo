@@ -564,29 +564,21 @@ async function writeLinkInfo(){
 
 		await fs.writeFile(aFileString, aString, function (err) { });
 		 
-		for(var i=0;i<aFileArray.length;i++){
-			if(i<=10){
-				await fs.writeFile(aFileArray[i], encodeString( aStringArray[i]), function (err) {
-				});
-			} 
-		}
+		for(var i=0;i<aFileArray.length;i++)
+		 
+			await fs.writeFile(aFileArray[i], encodeString( aStringArray[i]), function (err) {});
+			 
+		 
 	}
 
 	 
 	if(bFileArray>0){
 		await fs.writeFile(bFileString, bString, function (err) { });
 		 
-		for(var i=0;i<bFileArray.length;i++){
+		for(var i=0;i<bFileArray.length;i++)
 
-			if(i<=10){
-				await fs.writeFile(bFileArray[i], encodeString( bStringArray[i]), function (err) {
-
-				});
-			
-			}
- 
-		}
-	 
+			await fs.writeFile(bFileArray[i], encodeString( bStringArray[i]), function (err) {});
+  
 
 	}
  
