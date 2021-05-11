@@ -559,7 +559,7 @@ async function writeLinkInfo(){
 
 	console.log('write file:'+aFileString+'-'+aFileArray.length);
 	console.log('write file:'+bFileString+'-'+bFileArray.length);
-	
+
 	if(aFileArray>0){
 
 		await fs.writeFile(aFileString, aString, function (err) { });
@@ -623,7 +623,7 @@ async function writeLinkInfo(){
 	var str = '';
 	var decodeString='';
 	//making the https get call
-	console.log("******************"); 
+	 
     var getReq = https.request(options, function(res) {
         res.on('data', function(data) {
 			str += data;
@@ -635,6 +635,7 @@ async function writeLinkInfo(){
 
 			if(isWriteToFile){
 
+				console.log("******************"); 
 				console.log("------formatLinkInfo");
 				formatLinkInfo();
 				console.log("------writeLinkInfo");
