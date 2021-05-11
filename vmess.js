@@ -272,7 +272,7 @@ function decodeHTML(index, htmlString){
 				}
 				var ts=sub.substring(0,x1) ;
 				tems=tems+ts +'\r\n'; 
-				tStringArray.push(ts +']]');//(ts +'\r\n');
+				tStringArray.push(ts);// +']]');//(ts +'\r\n');
 				s=sub.substring( x1, l1-x1 );
 		
 			}while (exitNumber==false);
@@ -320,7 +320,7 @@ function decodeHTML(index, htmlString){
 				if(h=='\n'){
 
 					tems=tems+ts +'\r\n'; 
-					tStringArray.push(ts   +']]');
+					tStringArray.push(ts );//  +']]');
 					ts="";
 
 				}else{
@@ -407,7 +407,7 @@ function decodeHTML(index, htmlString){
 				var ts=sub.substring(0,x1) ;
 	 
 				tems=tems+ts +'\r\n'; 
-				tStringArray.push(ts +  ']]');
+				tStringArray.push(ts);// +  ']]');
 				s=sub.substring( x1, l1-x1 );
 		
 			}while (exitNumber==false);
