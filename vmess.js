@@ -555,31 +555,36 @@ async function writeLinkInfo(){
 		
 	}
 
+	if(aFileArray>0){
 
-	await fs.writeFile(aFileString, aString, function (err) { });
-	await fs.writeFile(bFileString, bString, function (err) { });
-
-	for(var i=0;i<aFileArray.length;i++){
-		if(i<=10){
-
-			await fs.writeFile(aFileArray[i], encodeString( aStringArray[i]), function (err) {
-			 
-			});
-
+		await fs.writeFile(aFileString, aString, function (err) { });
+		for(var i=0;i<aFileArray.length;i++){
+			if(i<=10){
+				await fs.writeFile(aFileArray[i], encodeString( aStringArray[i]), function (err) {
+				});
+			} 
 		}
-		 
 	}
- 
-	for(var i=0;i<bFileArray.length;i++){
 
-		if(i<=10){
-			await fs.writeFile(bFileArray[i], encodeString( bStringArray[i]), function (err) {
+	 
+	if(bFileArray>0){
+		await fs.writeFile(bFileString, bString, function (err) { });
 
-			});
+		for(var i=0;i<bFileArray.length;i++){
+
+			if(i<=10){
+				await fs.writeFile(bFileArray[i], encodeString( bStringArray[i]), function (err) {
+
+				});
 			
-		}
+			}
  
+		}
+	 
+
 	}
+ 
+
 	 
   
 	execProcess("sh command1.sh", function(err, response){// 
