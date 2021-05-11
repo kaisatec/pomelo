@@ -682,7 +682,7 @@ async function startToRun(){
 	vmessListString='';
 	isRun=true;
 	globalStep=0;
-	vmessStringArray.clear;
+	vmessStringArray=[];
 	//vmessStringArray[0]=[];//.clear;
 	//vmessStringArray[1]=[];
 	//vmessStringArray[2]=[];
