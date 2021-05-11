@@ -568,6 +568,7 @@ async function writeLinkInfo(){
 		for(var i=0;i<aFileArray.length;i++){
 
 		 
+			console.log(encodeString( aStringArray[i]));
 			await fs.writeFile(aFileArray[i], encodeString( aStringArray[i]), function (err) {});
 			 
 		}
@@ -582,7 +583,7 @@ async function writeLinkInfo(){
 		 
 		for(var i=0;i<bFileArray.length;i++){
 
-		 
+			console.log(encodeString( bStringArray[i]));
 			await fs.writeFile(bFileArray[i], encodeString( bStringArray[i]), function (err) {});
 		}
 
