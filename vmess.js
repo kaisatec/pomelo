@@ -272,7 +272,7 @@ function decodeHTML(index, htmlString){
 				}
 				var ts=sub.substring(0,x1) ;
 				tems=tems+ts +'\r\n'; 
-				tStringArray.push(ts);// +']]');//(ts +'\r\n');
+				tStringArray.push(ts  +'\r\n');
 				s=sub.substring( x1, l1-x1 );
 		
 			}while (exitNumber==false);
@@ -320,7 +320,7 @@ function decodeHTML(index, htmlString){
 				if(h=='\n'){
 
 					tems=tems+ts +'\r\n'; 
-					tStringArray.push(ts );//  +']]');
+					tStringArray.push(ts  +'\r\n');
 					ts="";
 
 				}else{
@@ -407,7 +407,7 @@ function decodeHTML(index, htmlString){
 				var ts=sub.substring(0,x1) ;
 	 
 				tems=tems+ts +'\r\n'; 
-				tStringArray.push(ts);// +  ']]');
+				tStringArray.push(ts  +  '\r\n');
 				s=sub.substring( x1, l1-x1 );
 		
 			}while (exitNumber==false);
@@ -493,7 +493,7 @@ function formatLinkInfo(){
 
 			var h='';
 			for(var i=0;i<5;i++)
-			h=h+tArray[j*5+i];//+'\r\n';
+			h=h+tArray[j*5+i] +'\r\n';
 			aStringArray.push(h);
 		}	 
 	}
@@ -506,7 +506,7 @@ function formatLinkInfo(){
 				h=h+tArray[tArray.length-1-i];//+'\r\n';
 			}else{
 				for(var i=0;i<5;i++)
-				h=h+tArray[j*5+i];//+'\r\n';
+				h=h+tArray[j*5+i] +'\r\n';
 			
 			}
 			bStringArray.push(h);
