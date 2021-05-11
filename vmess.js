@@ -459,7 +459,7 @@ function formatLinkInfo(){
 	var maxA=5;
 	var maxB=10;
 
-	var tDivA=Math.floor( tAmount/maxA);
+	var tDivA=Math.floor(tAmount/maxA);
 	var tModA=tAmount % maxA;
 	if (tModA!=0) tDivA=tDivA+1;
 
@@ -468,8 +468,8 @@ function formatLinkInfo(){
 	var tDivB=Math.floor(tAmount/maxB);
 	var tModB=tAmount % maxB;
 	if (tModB!=0) tDivB=tDivB+1;
-	console.log(tAmount+'|'+maxA+'|'+maxB+'|'+tDivA+"|"+tModA+"|"+tDivB+"|"+tModB+"|");
 
+	console.log(tAmount+'|'+maxA+'|'+maxB+'|'+tDivA+"|"+tModA+"|"+tDivB+"|"+tModB+"|");
 
 	var amountAFileArray=tDivA;
 	var amountBFileArray=tDivB;
@@ -482,7 +482,7 @@ function formatLinkInfo(){
 			var h='';
 			if(j==tDivA-1){
 				for(var i=0;i<5;i++)
-				h=h+tArray[tArray.length-1-i]+'\r\n';
+				h=h+tArray[tArray.length-1-i];//+'\r\n';
 			}else{
 				for(var i=0;i<5;i++)
 				h=h+tArray[j*5+i];//+'\r\n';
@@ -547,6 +547,7 @@ function formatLinkInfo(){
 async function writeLinkInfo(){
 
 
+	/*
 	for(var i=0;i<aFileArray.length;i++){
 		
 	}
@@ -554,10 +555,15 @@ async function writeLinkInfo(){
 	for(var i=0;i<bFileArray.length;i++){
 		
 	}
+	*/
 
+	console.log('write file:'+aFileString+'-'+aFileArray.length);
+	console.log('write file:'+bFileString+'-'+bFileArray.length);
+	
 	if(aFileArray>0){
 
 		await fs.writeFile(aFileString, aString, function (err) { });
+		 
 		for(var i=0;i<aFileArray.length;i++){
 			if(i<=10){
 				await fs.writeFile(aFileArray[i], encodeString( aStringArray[i]), function (err) {
@@ -569,7 +575,7 @@ async function writeLinkInfo(){
 	 
 	if(bFileArray>0){
 		await fs.writeFile(bFileString, bString, function (err) { });
-
+		 
 		for(var i=0;i<bFileArray.length;i++){
 
 			if(i<=10){
@@ -617,7 +623,7 @@ async function writeLinkInfo(){
 	var str = '';
 	var decodeString='';
 	//making the https get call
-	 
+	console.log("******************"); 
     var getReq = https.request(options, function(res) {
         res.on('data', function(data) {
 			str += data;
