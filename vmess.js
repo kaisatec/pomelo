@@ -485,7 +485,7 @@ function formatLinkInfo(){
 				h=h+tArray[tArray.length-1-i]+'\r\n';
 			}else{
 				for(var i=0;i<5;i++)
-				h=h+tArray[j*5+i]+'\r\n';
+				h=h+tArray[j*5+i];//+'\r\n';
 			
 			}
 			aStringArray.push(h);
@@ -493,7 +493,7 @@ function formatLinkInfo(){
 
 			var h='';
 			for(var i=0;i<5;i++)
-			h=h+tArray[j*5+i]+'\r\n';
+			h=h+tArray[j*5+i];//+'\r\n';
 			aStringArray.push(h);
 		}	 
 	}
@@ -503,10 +503,10 @@ function formatLinkInfo(){
 			var h='';
 			if(j==tDivB-1){
 				for(var i=0;i<5;i++)
-				h=h+tArray[tArray.length-1-i]+'\r\n';
+				h=h+tArray[tArray.length-1-i];//+'\r\n';
 			}else{
 				for(var i=0;i<5;i++)
-				h=h+tArray[j*5+i]+'\r\n';
+				h=h+tArray[j*5+i];//+'\r\n';
 			
 			}
 			bStringArray.push(h);
@@ -514,7 +514,7 @@ function formatLinkInfo(){
 
 			var h='';
 			for(var i=0;i<5;i++)
-			h=h+tArray[j*5+i]+'\r\n';
+			h=h+tArray[j*5+i];//+'\r\n';
 			bStringArray.push(h);
 		}	 
 	}
