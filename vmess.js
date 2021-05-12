@@ -723,7 +723,7 @@ async function startToRun(){
     if(isRun) startToRun();
   
 
-	}, 10000);
+	}, 600000);
 
  
  
