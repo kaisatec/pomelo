@@ -536,9 +536,9 @@ function formatLinkInfo(){
 
 
 	aFileString="a.txt";
-	aString="{v:\"2021020101\",u:\"https://alohaboost.github.com/a\",a:"+aFileArray.length.toString()+"}";//10
+	aString="{v:\"2021020101\",u:\"https://alohabooster.github.com/a\",a:"+aFileArray.length.toString()+"}";//10
 	bFileString="b.txt";
-	bString="{v:\"2021020101\",m:{\"https://alohaboost.herokuapp.com/\",\"https://aloha1boost.herokuapp.com/\"},u:\"https://alohaboost.github.com/b\",a:"+bFileArray.length.toString()+"}";//5
+	bString="{v:\"2021020101\",m:{\"https://alohaboost.herokuapp.com/\",\"https://aloha1boost.herokuapp.com/\"},u:\"https://alohabooster.github.com/b\",a:"+bFileArray.length.toString()+"}";//5
 	 
 
  
@@ -557,8 +557,8 @@ async function writeLinkInfo(){
 	}
 	*/
 
-	console.log('write file:'+aFileString+'-'+aFileArray.length);
-	console.log('write file:'+bFileString+'-'+bFileArray.length);
+	//console.log('write file:'+aFileString+'-'+aFileArray.length);
+	//console.log('write file:'+bFileString+'-'+bFileArray.length);
 
 	if(aFileArray.length>0){
 
