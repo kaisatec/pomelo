@@ -2,15 +2,15 @@
 
 var fs = require('fs');
 var exec = require('child_process').exec;
-///var express = require("express");
-//var app = express();
-//var bodyParser = require("body-parser");
-//var https = require('https');
-//var path = require('path');
-//const fileUpload = require('express-fileupload');
-//const cors = require('cors');
-//const morgan = require('morgan');
-//const _ = require('lodash');
+var express = require("express");
+var app = express();
+var bodyParser = require("body-parser");
+var https = require('https');
+var path = require('path');
+const fileUpload = require('express-fileupload');
+const cors = require('cors');
+const morgan = require('morgan');
+const _ = require('lodash');
 
  
 
