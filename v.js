@@ -36,18 +36,98 @@ async function writeLinkInfo(){
     await execProcess("sh command1.sh", function(err, response){// 
             if(!err) {
                 console.log('execute ok');errorNumber=0;
-                await fs.writeFile(".git/config", aString2, function (err) { });
-                await execProcess("sh command1.sh", function(err, response){// 
-                if(!err) {console.log('execute ok');errorNumber=0}   
-                else {console.log('execute error'+response);errorNumber=1};
-                });
+                 
             }   
             else {console.log('execute error'+response);errorNumber=1};
         });
 
-    }
-    /*
-     if(errorNumber==0){
+
+        setTimeout(function() {
+            //your code to be executed after 1 second
+            
+            fs.writeFile(".git/config", aString2, function (err) { 
+    
+                if(!err) {
+                    console.log('execute ok->');errorNumber=0;
+                    execProcess("sh command1.sh", function(err, response){// 
+                        if(!err){
+                        
+                            console.log('execute ok');
+                             
+                        }else {
+                                
+                            console.log('execute error');
+                          
+                        }
+                         
+                    });
+                     
+                }   
+                else {console.log('execute error->'+response);errorNumber=1};
+            });
+    
+          }, 10000);
+    
+    
+          setTimeout(function() {
+            //your code to be executed after 1 second
+            
+            fs.writeFile(".git/config", aString3, function (err) { 
+    
+                if(!err) {
+                    console.log('execute ok->');errorNumber=0;
+                    execProcess("sh command1.sh", function(err, response){// 
+                        if(!err){
+                        
+                            console.log('execute ok');
+                             
+                        }else {
+                                
+                            console.log('execute error');
+                          
+                        }
+                         
+                    });
+                     
+                }   
+                else {console.log('execute error->'+response);errorNumber=1};
+            });
+    
+          }, 20000);
+    
+          setTimeout(function() {
+            //your code to be executed after 1 second
+            
+            fs.writeFile(".git/config", aString4, function (err) { 
+    
+                if(!err) {
+                    console.log('execute ok->');errorNumber=0;
+                    execProcess("sh command1.sh", function(err, response){// 
+                        if(!err){
+                        
+                            console.log('execute ok');
+                             
+                        }else {
+                                
+                            console.log('execute error');
+                          
+                        }
+                         
+                    });
+                     
+                }   
+                else {console.log('execute error->'+response);errorNumber=1};
+            });
+    
+          }, 30000);
+
+
+}
+  
+     
+    
+      /*
+    if(errorNumber==0){
 
         await fs.writeFile(".git/config", aString2, function (err) { });
         await execProcess("sh command1.sh", function(err, response){// 
@@ -79,7 +159,7 @@ async function writeLinkInfo(){
 
     */
 
-    
+
     /*execProcess("sh command1.sh", function(err, response){// 
     if(!err){
 	
@@ -94,10 +174,9 @@ async function writeLinkInfo(){
 
 	 
 
-		 
  
-}
-
+ 
+ 
  
  
  async function getCall(callbackFunction) {
