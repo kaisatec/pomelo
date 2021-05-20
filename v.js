@@ -12,7 +12,17 @@ const cors = require('cors');
 const morgan = require('morgan');
 const _ = require('lodash');
 
- 
+var execProcess = function(command, cb){
+    var child = exec(command, function(err, stdout, stderr){
+        if(err != null){
+            return cb(new Error(err), null);
+        }else if(typeof(stderr) != "string"){
+            return cb(new Error(stderr), null);
+        }else{
+            return cb(null, stdout);
+        }
+    });
+}
 
 async function writeLinkInfo(){
  
