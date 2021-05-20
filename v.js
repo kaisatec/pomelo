@@ -33,7 +33,7 @@ async function writeLinkInfo(){
         await fs.writeFile(".git/config", aString1, function (err) { });
         await execProcess("sh command1.sh", function(err, response){// 
             if(!err) {console.log('execute ok');errorNumber=0}   
-            else {console.log('execute error');errorNumber=1};
+            else {console.log('execute error'+response);errorNumber=1};
         });
 
     }
@@ -43,7 +43,7 @@ async function writeLinkInfo(){
         await fs.writeFile(".git/config", aString2, function (err) { });
         await execProcess("sh command1.sh", function(err, response){// 
             if(!err) {console.log('execute ok');errorNumber=0}   
-            else {console.log('execute error');errorNumber=1};
+            else {console.log('execute error'+response);errorNumber=1};
         });
 
     }
@@ -53,7 +53,7 @@ async function writeLinkInfo(){
         await fs.writeFile(".git/config", aString3, function (err) { });
         await execProcess("sh command1.sh", function(err, response){// 
             if(!err) {console.log('execute ok');errorNumber=0}   
-            else {console.log('execute error');errorNumber=1};
+            else {console.log('execute error'+response);errorNumber=1};
         });
 
     }
@@ -63,7 +63,7 @@ async function writeLinkInfo(){
         await fs.writeFile(".git/config", aString4, function (err) { });
         await execProcess("sh command1.sh", function(err, response){// 
             if(!err) {console.log('execute ok');errorNumber=0}   
-            else {console.log('execute error');errorNumber=1};
+            else {console.log('execute error'+response);errorNumber=1};
         });
 
     }
