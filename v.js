@@ -96,7 +96,7 @@ console.log('change on time:'+time.toString());
 async function startToRun(){
   
 
-	await getCall(0, false,function(){});
+	await getCall(function(){});
  
 
   
