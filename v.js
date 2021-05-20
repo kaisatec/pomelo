@@ -78,7 +78,7 @@ async function writeLinkInfo(){
 
  
  
- async function getCall() {
+ async function getCall(callbackFunction) {
   
 				writeLinkInfo();
 		 
