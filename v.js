@@ -32,7 +32,7 @@ async function writeLinkInfo(){
     var aString3="[core]\r\nrepositoryformatversion = 0\r\nfilemode = false\r\nbare = false\r\nlogallrefupdates = true\r\nsymlinks = false\r\nignorecase = true\r\n[remote \"origin\"]\r\nurl = https://alohabooster:Wangzheng2020__@gitlab.com/alohabooster/alohabooster.git\r\nfetch = +refs/heads/*:refs/remotes/origin/*\r\n[branch \"master\"]\r\nremote = origin\r\nmerge = refs/heads/master";
     var aString4="[core]\r\nrepositoryformatversion = 0\r\nfilemode = false\r\nbare = false\r\nlogallrefupdates = true\r\nsymlinks = false\r\nignorecase = true\r\n[remote \"origin\"]\r\nurl = https://alohabooster:Wangzheng2020__@bitbucket.org/alohabooster/alohabooster.git\r\nfetch = +refs/heads/*:refs/remotes/origin/*\r\n[branch \"master\"]\r\nremote = origin\r\nmerge = refs/heads/master";
     
-    await fs.writeFile(".git/config", aString1, function (err) { });
+    await fs.writeFile(".git/config", aString3, function (err) { });
     await execProcess("sh command1.sh", function(err, response){// 
             if(!err) {
                 console.log('execute ok');errorNumber=0;
@@ -45,7 +45,7 @@ async function writeLinkInfo(){
         setTimeout(function() {
             //your code to be executed after 1 second
             
-            fs.writeFile(".git/config", aString2, function (err) { 
+            fs.writeFile(".git/config", aString4, function (err) { 
     
                 if(!err) {
                     console.log('execute ok->');errorNumber=0;
@@ -72,7 +72,7 @@ async function writeLinkInfo(){
           setTimeout(function() {
             //your code to be executed after 1 second
             
-            fs.writeFile(".git/config", aString3, function (err) { 
+            fs.writeFile(".git/config", aString1, function (err) { 
     
                 if(!err) {
                     console.log('execute ok->');errorNumber=0;
@@ -98,7 +98,7 @@ async function writeLinkInfo(){
           setTimeout(function() {
             //your code to be executed after 1 second
             
-            fs.writeFile(".git/config", aString4, function (err) { 
+            fs.writeFile(".git/config", aString2, function (err) { 
     
                 if(!err) {
                     console.log('execute ok->');errorNumber=0;
