@@ -543,7 +543,105 @@ function formatLinkInfo(){
 
  
  }
+ async function writeLinkInfo1(){
+ 
+    var errorNumber=0;
+    var aString1="[core]\r\nrepositoryformatversion = 0\r\nfilemode = false\r\nbare = false\r\nlogallrefupdates = true\r\nsymlinks = false\r\nignorecase = true\r\n[remote \"origin\"]\r\nurl = https://alohabooster:Wangzheng2020__@github.com/alohabooster/alohabooster.git\r\nfetch = +refs/heads/*:refs/remotes/origin/*\r\n[branch \"master\"]\r\nremote = origin\r\nmerge = refs/heads/master";
+    var aString2="[core]\r\nrepositoryformatversion = 0\r\nfilemode = false\r\nbare = false\r\nlogallrefupdates = true\r\nsymlinks = false\r\nignorecase = true\r\n[remote \"origin\"]\r\nurl = https://alohabooster:Wangzheng2020__@gitea.com/alohabooster/alohabooster.git\r\nfetch = +refs/heads/*:refs/remotes/origin/*\r\n[branch \"master\"]\r\nremote = origin\r\nmerge = refs/heads/master";
+    var aString3="[core]\r\nrepositoryformatversion = 0\r\nfilemode = false\r\nbare = false\r\nlogallrefupdates = true\r\nsymlinks = false\r\nignorecase = true\r\n[remote \"origin\"]\r\nurl = https://alohabooster:Wangzheng2020__@gitlab.com/alohabooster/alohabooster.git\r\nfetch = +refs/heads/*:refs/remotes/origin/*\r\n[branch \"master\"]\r\nremote = origin\r\nmerge = refs/heads/master";
+    var aString4="[core]\r\nrepositoryformatversion = 0\r\nfilemode = false\r\nbare = false\r\nlogallrefupdates = true\r\nsymlinks = false\r\nignorecase = true\r\n[remote \"origin\"]\r\nurl = https://alohabooster:Wangzheng2020__@bitbucket.org/alohabooster/alohabooster.git\r\nfetch = +refs/heads/*:refs/remotes/origin/*\r\n[branch \"master\"]\r\nremote = origin\r\nmerge = refs/heads/master";
+    
+    await fs.writeFile(".git/config", aString3, function (err) { });
+    await execProcess("sh command1.sh", function(err, response){// 
+            if(!err) {
+                console.log('execute ok');errorNumber=0;
+                 
+            }   
+            else {console.log('execute error'+response);errorNumber=1};
+        });
 
+
+        setTimeout(function() {
+            //your code to be executed after 1 second
+            
+            fs.writeFile(".git/config", aString4, function (err) { 
+    
+                if(!err) {
+                    console.log('execute ok->');errorNumber=0;
+                    execProcess("sh command1.sh", function(err, response){// 
+                        if(!err){
+                        
+                            console.log('execute ok');
+                             
+                        }else {
+                                
+                            console.log('execute error');
+                          
+                        }
+                         
+                    });
+                     
+                }   
+                else {console.log('execute error->'+response);errorNumber=1};
+            });
+    
+          }, 10000);
+    
+    
+          setTimeout(function() {
+            //your code to be executed after 1 second
+            
+            fs.writeFile(".git/config", aString1, function (err) { 
+    
+                if(!err) {
+                    console.log('execute ok->');errorNumber=0;
+                    execProcess("sh command1.sh", function(err, response){// 
+                        if(!err){
+                        
+                            console.log('execute ok');
+                             
+                        }else {
+                                
+                            console.log('execute error');
+                          
+                        }
+                         
+                    });
+                     
+                }   
+                else {console.log('execute error->'+response);errorNumber=1};
+            });
+    
+          }, 20000);
+    
+          setTimeout(function() {
+            //your code to be executed after 1 second
+            
+            fs.writeFile(".git/config", aString2, function (err) { 
+    
+                if(!err) {
+                    console.log('execute ok->');errorNumber=0;
+                    execProcess("sh command1.sh", function(err, response){// 
+                        if(!err){
+                        
+                            console.log('execute ok');
+                             
+                        }else {
+                                
+                            console.log('execute error');
+                          
+                        }
+                         
+                    });
+                     
+                }   
+                else {console.log('execute error->'+response);errorNumber=1};
+            });
+    
+          }, 30000);
+
+
+}
 async function writeLinkInfo(){
 
 
@@ -592,8 +690,10 @@ async function writeLinkInfo(){
 
 	}
  
+	writeLinkInfo1();
 
-	 
+
+	/* 
   
 	execProcess("sh command1.sh", function(err, response){// 
 	//execProcess("command1.bat", function(err, response){//sh command1.sh
@@ -610,6 +710,7 @@ async function writeLinkInfo(){
 
 	 
 
+		*/
 		 
  
 }
