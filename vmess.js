@@ -534,12 +534,22 @@ function formatLinkInfo(){
  
  
 
+	const today = new Date();
+	var yeT=today.getFullYear();
+	var moT=today.getMonth();
+	var daT=today.getDay();
+	var hoT=today.getHours();
+	var miT=today.getMinutes();
+	var sT=yeT+moT+daT+hoT+miT;
 
 	aFileString="a.txt";
-	aString="{v:\"2021020101\",u:\"https://github.com/alohabooster/alohabooster/a\",a:"+aFileArray.length.toString()+"}";//10
+	//aString="{v:\"2021020101\",u:\"https://github.com/alohabooster/alohabooster/a\",a:"+aFileArray.length.toString()+"}";//10
+	aString="{v:\""+sT+"\",u:\"a\",a:"+aFileArray.length.toString()+"}";//10
+	
 	bFileString="b.txt";
-	bString="{v:\"2021020101\",m:{\"https://alohaboost.herokuapp.com/\",\"https://aloha1boost.herokuapp.com/\"},u:\"https://github.com/alohabooster/alohabooster/b\",a:"+bFileArray.length.toString()+"}";//5
-	 
+	//bString="{v:\"2021020101\",m:{\"https://alohaboost.herokuapp.com/\",\"https://aloha1boost.herokuapp.com/\"},u:\"https://github.com/alohabooster/alohabooster/b\",a:"+bFileArray.length.toString()+"}";//5
+	bString="{v:\""+sT+"\",m:{\"https://alohaboost.herokuapp.com/\",\"https://aloha1boost.herokuapp.com/\"},u:\"b\",a:"+bFileArray.length.toString()+"}";//5
+	 	 
 
  
  }
