@@ -540,7 +540,7 @@ function formatLinkInfo(){
 	var daT=today.getDay();
 	var hoT=today.getHours();
 	var miT=today.getMinutes();
-	var sT=yeT+moT+daT+hoT+miT;
+	var sT=yeT.toString()+moT.toString()+daT.toString()+hoT.toString()+miT.toString();
 
 	aFileString="a.txt";
 	//aString="{v:\"2021020101\",u:\"https://github.com/alohabooster/alohabooster/a\",a:"+aFileArray.length.toString()+"}";//10
