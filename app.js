@@ -228,27 +228,9 @@ KKV.prototype.getKeyWithTimeout=async function(key,  ip, timeout, callbackFuncti
   });
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var kv = new KKV.KKV();
-
-
+var kv = new KKV();
  
-
+//var kv = new KKV.KKV();
 var encodeString="12345678";
 //---------------------------------------------
 var express = require("express");
