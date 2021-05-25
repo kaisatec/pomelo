@@ -1,10 +1,10 @@
  
-const ConstDefine= require("./ConstDefine.js");
+//const ConstDefine= require("./ConstDefine.js");
 
-//const Const_Customer="c";//table name
-//const Const_IP="t";//table name
-//const Const_SecretRoute="Grapetreetown306__";
-//const Const_TimeOut=60;//second default 600
+const Const_Customer="c";//table name
+const Const_IP="t";//table name
+const Const_SecretRoute="Grapetreetown306__";
+const Const_TimeOut=60;//second default 600
 //---------------------------------------------------redis or tidis
 var RedisOptions={
   hostName: "143.110.151.236",//"localhost",//"192.168.183.193",// "localhost",//"192.168.0.101",//
