@@ -2,10 +2,10 @@
 
  
 var ConstDefine={
- Const_Customer："c",//table name
- Const_IP："t",//table name
- Const_SecretRoute："Grapetreetown306__",
- Const_TimeOut：60//second default 600
+ Const_Customer:"c",//table name
+ Const_IP:"t",//table name
+ Const_SecretRoute:"Grapetreetown306__",
+ Const_TimeOut:60//second default 600
 };
 //var KKV= require('./KKV.js');
 
