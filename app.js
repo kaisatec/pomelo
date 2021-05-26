@@ -87,12 +87,15 @@ KKV.prototype.del_ = function(key){
   console.log(sqlString);
 
   dbRedis.del(key,function (err, reply) {
-    if (err){ throw err; return }
+    if (err){ throw err;console.log("redis del error"); return }
+    console.log("redis del ok");
     dbMysql.query(sqlString, function (err, result) {
   
       if (err) throw err;
+      console.log("mysql del");
       return;
     });
+
     return;
   });
  
