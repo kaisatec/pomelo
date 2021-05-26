@@ -82,14 +82,21 @@ function KKV(){
 //set set_ set_s
 KKV.prototype.del_ = function(key){
 
-  dbRedis.del(key);
+  //dbRedis.del(key);
   var sqlString="DELETE from "+ConstDefine.Const_Customer+" where keyString='"+key+"'";
   console.log(sqlString);
-  dbMysql.query(sqlString, function (err, result) {
+
+  dbRedis.del(key,function (err, reply) {
+    if (err){ throw err; return }
+    dbMysql.query(sqlString, function (err, result) {
   
-    if (err) throw err;
+      if (err) throw err;
+      return;
+    });
     return;
   });
+ 
+ 
 
 }
 KKV.prototype.set_=function(key,value,callbackFunction){
@@ -98,7 +105,7 @@ KKV.prototype.set_=function(key,value,callbackFunction){
     // reply is null when the key is missing
     dbRedis.set(Const_Customer+"_"+key,value);
     var sqlString="";
-    console.log("!="+reply+"!");
+    //console.log("!="+reply+"!");
     if((reply==null)||(reply=="")){
         sqlString="INSERT INTO "+ConstDefine.Const_Customer+" (keyString, valueString) VALUES ('"+key+"', '"+ value+"')";
     }else{
@@ -171,7 +178,7 @@ KKV.prototype.get_s=async function(key,callbackFunction){
 	  // reply is null when the key is missing
 	  dbRedis.set(ConstDefine.Const_Customer+"_"+key,"1");
 	  var sqlString="";
-	  console.log("!=="+reply+"!");
+	  //console.log("!=="+reply+"!");
 	  if((reply==null)||(reply=="")){
 		  sqlString="INSERT INTO "+ConstDefine.Const_Customer+" (keyString, valueString) VALUES ('"+key+"', '"+ value+"')";
 	  }else{
