@@ -80,7 +80,7 @@ if(RedisOptions.password.length>0){
 function KKV(){
 }
 //set set_ set_s
-KKV.prototype.del_ = function(key){
+KKV.prototype.del_ = function(key,callbackFunction){
 
   //dbRedis.del(key);
   var sqlString="DELETE from "+ConstDefine.Const_Customer+" where keyString='"+key+"'";
@@ -88,17 +88,17 @@ KKV.prototype.del_ = function(key){
    
   dbRedis.del(ConstDefine.Const_Customer+"_"+key,function (err, reply) {
 
-    if (err){ throw err;console.log("redis del error"); return }
+    if (err){ throw err;   }
     console.log("redis del ok");
     dbMysql.query(sqlString, function (err, result) {
   
       if (err) throw err;
-      console.log("mysql del");
-      return;
+      console.log("mysql del ok");
+      return callbackFunction();;
 
     });
 
-    return;
+    return callbackFunction();
 
   });
  
@@ -548,7 +548,11 @@ app.get("/"+ConstDefine.Const_SecretRoute+"/del/:id", function (req, res) {
 	  .status(400)
 	  .send({ e: "t", i: "-" });// "too long user id" });
 	}
-	kv.del_(key);
+  kv.del_(key, function() { //const g=db.get(88888888);
+	
+    return res.send({ e: "r", i: "o"});//, message: "users list." });
+  
+  });
   
   });
 
