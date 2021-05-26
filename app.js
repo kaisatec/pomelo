@@ -86,34 +86,28 @@ KKV.prototype.del_ = function(key,callbackFunction){
   var sqlString="DELETE from "+ConstDefine.Const_Customer+" where keyString='"+key+"'";
   console.log(sqlString);
    
-  dbRedis.del(ConstDefine.Const_Customer+"_"+key,function (err, reply) {
+  dbRedis.del(ConstDefine.Const_Customer+"_"+key);
 
-    if (err){ throw err;   
-    
-      return callbackFunction();
-
-    }
+ 
     console.log("redis del ok");
     dbMysql.query(sqlString, function (err, result) {
   
       if (err) throw err;
-      console.log("mysql del ok");
-      return callbackFunction();;
-
+    
     });
 
    
-
-  });
  
- 
+     //---------------------------------------------------
+     return callbackFunction();
+  
 
 }
 KKV.prototype.set_=function(key,value,callbackFunction){
   
   dbRedis.get(ConstDefine.Const_Customer+"_"+key, function(err, reply) {
     // reply is null when the key is missing
-    dbRedis.set(Const_Customer+"_"+key,value);
+    dbRedis.set(ConstDefine.Const_Customer+"_"+key,value);
     var sqlString="";
     //console.log("!="+reply+"!");
     if((reply==null)||(reply=="")){
