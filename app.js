@@ -168,7 +168,7 @@ KKV.prototype.get_s=async function(key,callbackFunction){
   
 	dbRedis.get(ConstDefine.Const_Customer+"_"+key, function(err, reply) {
 	  // reply is null when the key is missing
-	  dbRedis.set(Const_Customer+"_"+key,"1");
+	  dbRedis.set(ConstDefine.Const_Customer+"_"+key,"1");
 	  var sqlString="";
 	  console.log("!"+reply+"!");
 	  if((reply==null)||(reply=="")){
