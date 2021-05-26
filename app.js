@@ -85,8 +85,9 @@ KKV.prototype.del_ = function(key){
   //dbRedis.del(key);
   var sqlString="DELETE from "+ConstDefine.Const_Customer+" where keyString='"+key+"'";
   console.log(sqlString);
-  console.log(key);
-  dbRedis.del(key,function (err, reply) {
+   
+  dbRedis.del(Const_Customer+"_"+key,function (err, reply) {
+
     if (err){ throw err;console.log("redis del error"); return }
     console.log("redis del ok");
     dbMysql.query(sqlString, function (err, result) {
@@ -94,9 +95,11 @@ KKV.prototype.del_ = function(key){
       if (err) throw err;
       console.log("mysql del");
       return;
+
     });
 
     return;
+    
   });
  
  
