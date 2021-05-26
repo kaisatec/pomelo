@@ -88,7 +88,11 @@ KKV.prototype.del_ = function(key,callbackFunction){
    
   dbRedis.del(ConstDefine.Const_Customer+"_"+key,function (err, reply) {
 
-    if (err){ throw err;   }
+    if (err){ throw err;   
+    
+      return callbackFunction();
+
+    }
     console.log("redis del ok");
     dbMysql.query(sqlString, function (err, result) {
   
@@ -98,7 +102,7 @@ KKV.prototype.del_ = function(key,callbackFunction){
 
     });
 
-    return callbackFunction();
+   
 
   });
  
