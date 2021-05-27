@@ -35,7 +35,10 @@ var redis = require("redis");
 //---------------------------------------------------
 var dbMysql = mysql.createConnection( SQLOptions);
 dbMysql.connect(function(err) {  
-  if (err) throw err;  
+  
+  if (err) //throw err; 
+  console.log("error:"+err);
+
   console.log("mysql Connected!");  
 }); 
 
@@ -92,7 +95,10 @@ KKV.prototype.del_ = function(key,callbackFunction){
     console.log("redis del ok");
     dbMysql.query(sqlString, function (err, result) {
   
-      if (err) throw err;
+      if (err)// throw err;
+      {
+        console.log("error:"+err);
+      }
     
     });
 
@@ -116,7 +122,8 @@ KKV.prototype.set_=function(key,value,callbackFunction){
         sqlString="UPDATE "+ConstDefine.Const_Customer+" SET  valueString = '"+value+"' WHERE keyString = '"+key+"'";
     }
     dbMysql.query(sqlString, function (err, result) {
-       if (err) throw err;
+       if (err)// throw err;
+       console.log("error:"+err);
     
      });
      //---------------------------------------------------
@@ -140,7 +147,9 @@ KKV.prototype.get_=async function(key,callbackFunction){
     if(reply==null){
       sqlString="select * from customer where keyString='"+key+"'"; 
       dbMysql.query(sqlString, function (err,  result) {
-        if (err) throw err;
+        if (err)// throw err;
+        console.log("error:"+err);
+
         if((result==null)||(result="")){
           return callbackFunction(null);
         }else{
@@ -162,7 +171,10 @@ KKV.prototype.get_s=async function(key,callbackFunction){
 	  if(reply==null){
 		sqlString="select * from customer where keyString='"+key+"'"; 
 		dbMysql.query(sqlString, function (err,  result) {
-		  if (err) throw err;
+      
+      if (err) //throw err;
+      console.log("error:"+err);
+
 		  if((result==null)||(result="")){
 			return callbackFunction(null);
 		  }else{
@@ -189,7 +201,9 @@ KKV.prototype.get_s=async function(key,callbackFunction){
 		  sqlString="UPDATE "+ConstDefine.Const_Customer+" SET  valueString = '"+value+"' WHERE keyString = '"+key+"'";
 	  }
 	  dbMysql.query(sqlString, function (err, result) {
-		 if (err) throw err;
+
+     if (err)// throw err;
+     console.log("error:"+err);
 	  
 	   });
 	   //---------------------------------------------------
