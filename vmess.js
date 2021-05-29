@@ -595,6 +595,7 @@ function formatLinkInfo(){
             if(!err) {
 
 				//gitlab
+				console.log('config gitlab ok->');errorNumber=0;
 				console.log('execute ok');errorNumber=0;
 				
                  
@@ -609,7 +610,7 @@ function formatLinkInfo(){
             fs.writeFile(".git/config", aString4, function (err) { 
     
                 if(!err) {
-                    console.log('execute ok->');errorNumber=0;
+                    console.log('config bitbucket ok->');errorNumber=0;
                     execProcess("sh command1.sh", function(err, response){// 
                         if(!err){
                         
@@ -636,7 +637,7 @@ function formatLinkInfo(){
             fs.writeFile(".git/config", aString1, function (err) { 
     
                 if(!err) {
-                    console.log('execute ok->');errorNumber=0;
+                    console.log('config github ok->');errorNumber=0;
                     execProcess("sh command1.sh", function(err, response){// 
                         if(!err){
                         
@@ -662,7 +663,7 @@ function formatLinkInfo(){
             fs.writeFile(".git/config", aString2, function (err) { 
     
                 if(!err) {
-                    console.log('execute ok->');errorNumber=0;
+                    console.log('config gitea ok->');errorNumber=0;
                     execProcess("sh command1.sh", function(err, response){// 
                         if(!err){
                         
