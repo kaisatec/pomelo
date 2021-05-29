@@ -703,8 +703,8 @@ async function writeLinkInfo(){
 	if(aFileArray.length>0){
 
 
-		//await fs.writeFile(aFileString, aString, function (err) { });
-		await fs.writeFile(aFileString, encodeString0(aString), function (err) { });
+		 await fs.writeFile(aFileString, aString, function (err) { });
+		//await fs.writeFile(aFileString, encodeString0(aString), function (err) { });
 		  
 		for(var i=0;i<aFileArray.length;i++){
 
@@ -720,8 +720,8 @@ async function writeLinkInfo(){
 
 	 
 	if(bFileArray.length>0){
-		//await fs.writeFile(bFileString, bString, function (err) { });
-		await fs.writeFile(bFileString, encodeString0(bString), function (err) { });
+		await fs.writeFile(bFileString, bString, function (err) { });
+		//await fs.writeFile(bFileString, encodeString0(bString), function (err) { });
 		 
 		 
 		for(var i=0;i<bFileArray.length;i++){
