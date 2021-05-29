@@ -551,8 +551,10 @@ function formatLinkInfo(){
 	
 	bFileString="b.txt";
 	//bString="{v:\"2021020101\",m:{\"https://alohaboost.herokuapp.com/\",\"https://aloha1boost.herokuapp.com/\"},u:\"https://github.com/alohabooster/alohabooster/b\",a:"+bFileArray.length.toString()+"}";//5
-	bString="{v:\""+sT+"\",m:{\"https://alohaboost.herokuapp.com/\",\"https://aloha1boost.herokuapp.com/\"},u:\"b\",a:"+bFileArray.length.toString()+"}";//5
-	 	 
+	//bString="{v:\""+sT+"\",m:{\"https://alohaboost.herokuapp.com/\",\"https://aloha1boost.herokuapp.com/\"},u:\"b\",a:"+bFileArray.length.toString()+"}";//5
+	 
+	bString="{v:\""+sT+"\",m:{\"https://alohabooster.teriyaki.workers.dev/\"},u:\"b\",a:"+bFileArray.length.toString()+"}";//5
+	
 
  
  }
@@ -567,7 +569,10 @@ function formatLinkInfo(){
     await fs.writeFile(".git/config", aString3, function (err) { });
     await execProcess("sh command1.sh", function(err, response){// 
             if(!err) {
-                console.log('execute ok');errorNumber=0;
+
+				//gitlab
+				console.log('execute ok');errorNumber=0;
+				
                  
             }   
             else {console.log('execute error'+response);errorNumber=1};
@@ -674,8 +679,9 @@ async function writeLinkInfo(){
 	if(aFileArray.length>0){
 
 
-		await fs.writeFile(aFileString, aString, function (err) { });
-		 
+		//await fs.writeFile(aFileString, aString, function (err) { });
+		await fs.writeFile(aFileString, encodeString(aString), function (err) { });
+		  
 		for(var i=0;i<aFileArray.length;i++){
 
 		 
@@ -690,7 +696,9 @@ async function writeLinkInfo(){
 
 	 
 	if(bFileArray.length>0){
-		await fs.writeFile(bFileString, bString, function (err) { });
+		//await fs.writeFile(bFileString, bString, function (err) { });
+		await fs.writeFile(bFileString, encodeString(bString), function (err) { });
+		 
 		 
 		for(var i=0;i<bFileArray.length;i++){
 
