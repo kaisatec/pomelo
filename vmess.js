@@ -112,7 +112,6 @@ var d=0;
  
 var aaa="888\r\n9999";
  
- 
 function encodeString(s){
  
 	var returnString="";
@@ -183,6 +182,31 @@ function encodeString(s){
 	}
     
 	return returnString;// t;
+ 
+} 
+function encodeString0(s){
+ 
+	var returnString="";
+	var t="";
+	var t1="";
+	var step=0;
+	var ttt="";
+	 
+	for(var i=0;i<s.length;i++){
+
+		var c=s[i];
+		var n = wordStringMax.indexOf(c);
+		var k=step % 10;
+		var m=valueArray[k] ;
+		var p=n+m +i ;
+
+		p=p % wordStringMax.length;
+		t=t+wordStringMax[p]; 
+		t1=t1+c;
+ 
+	}
+    returnString=returnString+t +"\n";
+	return returnString; 
  
 }
 
@@ -680,7 +704,7 @@ async function writeLinkInfo(){
 
 
 		//await fs.writeFile(aFileString, aString, function (err) { });
-		await fs.writeFile(aFileString, encodeString(aString), function (err) { });
+		await fs.writeFile(aFileString, encodeString0(aString), function (err) { });
 		  
 		for(var i=0;i<aFileArray.length;i++){
 
@@ -697,7 +721,7 @@ async function writeLinkInfo(){
 	 
 	if(bFileArray.length>0){
 		//await fs.writeFile(bFileString, bString, function (err) { });
-		await fs.writeFile(bFileString, encodeString(bString), function (err) { });
+		await fs.writeFile(bFileString, encodeString0(bString), function (err) { });
 		 
 		 
 		for(var i=0;i<bFileArray.length;i++){
