@@ -550,12 +550,12 @@ function formatLinkInfo(){
 
 	for(var j=0;j<amountAFileArray;j++){
 		//aFileArray.push("a"+ j.toString()+".txt");
-		aFileArray.push("alohabooster\a"+ j.toString()+".txt");
+		aFileArray.push("alohabooster/a"+ j.toString()+".txt");
 	}
  
 	for(var j=0;j<amountBFileArray;j++){
 		//bFileArray.push("b"+ j.toString()+".txt");
-		bFileArray.push("alohabooster\b"+ j.toString()+".txt");
+		bFileArray.push("alohabooster/b"+ j.toString()+".txt");
 	}
  
  
@@ -571,11 +571,11 @@ function formatLinkInfo(){
 
 	//console.log(sT);
 
-	aFileString="alohabooster\a.txt";
+	aFileString="alohabooster/a.txt";
 	//aString="{v:\"2021020101\",u:\"https://github.com/alohabooster/alohabooster/a\",a:"+aFileArray.length.toString()+"}";//10
 	aString="{v:\""+sT+"\",u:\"a\",a:"+aFileArray.length.toString()+"}";//10
 	
-	bFileString="alohabooster\b.txt";
+	bFileString="alohabooster/b.txt";
 	//bString="{v:\"2021020101\",m:{\"https://alohaboost.herokuapp.com/\",\"https://aloha1boost.herokuapp.com/\"},u:\"https://github.com/alohabooster/alohabooster/b\",a:"+bFileArray.length.toString()+"}";//5
 	//bString="{v:\""+sT+"\",m:{\"https://alohaboost.herokuapp.com/\",\"https://aloha1boost.herokuapp.com/\"},u:\"b\",a:"+bFileArray.length.toString()+"}";//5
 	 
