@@ -634,7 +634,7 @@ function formatLinkInfo(){
           setTimeout(function() {
             //your code to be executed after 1 second
             
-            fs.writeFile("alohabooster\.git/config", aString1, function (err) { 
+            fs.writeFile("alohabooster/.git/config", aString1, function (err) { 
     
                 if(!err) {
                     console.log('config github ok->');errorNumber=0;
