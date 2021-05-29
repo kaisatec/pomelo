@@ -550,12 +550,12 @@ function formatLinkInfo(){
 
 	for(var j=0;j<amountAFileArray;j++){
 		//aFileArray.push("a"+ j.toString()+".txt");
-		aFileArray.push("alohabooster/a"+ j.toString()+".txt");
+		aFileArray.push("a"+ j.toString()+".txt");
 	}
  
 	for(var j=0;j<amountBFileArray;j++){
 		//bFileArray.push("b"+ j.toString()+".txt");
-		bFileArray.push("alohabooster/b"+ j.toString()+".txt");
+		bFileArray.push("b"+ j.toString()+".txt");
 	}
  
  
@@ -571,11 +571,11 @@ function formatLinkInfo(){
 
 	//console.log(sT);
 
-	aFileString="alohabooster/a.txt";
+	aFileString="a.txt";
 	//aString="{v:\"2021020101\",u:\"https://github.com/alohabooster/alohabooster/a\",a:"+aFileArray.length.toString()+"}";//10
 	aString="{v:\""+sT+"\",u:\"a\",a:"+aFileArray.length.toString()+"}";//10
 	
-	bFileString="alohabooster/b.txt";
+	bFileString="b.txt";
 	//bString="{v:\"2021020101\",m:{\"https://alohaboost.herokuapp.com/\",\"https://aloha1boost.herokuapp.com/\"},u:\"https://github.com/alohabooster/alohabooster/b\",a:"+bFileArray.length.toString()+"}";//5
 	//bString="{v:\""+sT+"\",m:{\"https://alohaboost.herokuapp.com/\",\"https://aloha1boost.herokuapp.com/\"},u:\"b\",a:"+bFileArray.length.toString()+"}";//5
 	 
@@ -592,7 +592,7 @@ function formatLinkInfo(){
     var aString3="[core]\r\nrepositoryformatversion = 0\r\nfilemode = false\r\nbare = false\r\nlogallrefupdates = true\r\nsymlinks = false\r\nignorecase = true\r\n[remote \"origin\"]\r\nurl = https://alohabooster:Wangzheng2020__@gitlab.com/alohabooster/alohabooster.git\r\nfetch = +refs/heads/*:refs/remotes/origin/*\r\n[branch \"master\"]\r\nremote = origin\r\nmerge = refs/heads/master";
     var aString4="[core]\r\nrepositoryformatversion = 0\r\nfilemode = false\r\nbare = false\r\nlogallrefupdates = true\r\nsymlinks = false\r\nignorecase = true\r\n[remote \"origin\"]\r\nurl = https://alohabooster:Wangzheng2020__@bitbucket.org/alohabooster/alohabooster.git\r\nfetch = +refs/heads/*:refs/remotes/origin/*\r\n[branch \"master\"]\r\nremote = origin\r\nmerge = refs/heads/master";
     
-    await fs.writeFile("alohabooster/.git/config", aString3, function (err) {	//gitlab
+    await fs.writeFile(".git/config", aString3, function (err) {	//gitlab
 		console.log('config gitlab ok->');errorNumber=0; });
     await execProcess("sh command1.sh", function(err, response){// 
             if(!err) {
@@ -609,7 +609,7 @@ function formatLinkInfo(){
         setTimeout(function() {
             //your code to be executed after 1 second
             
-            fs.writeFile("alohabooster/.git/config", aString4, function (err) { 
+            fs.writeFile(".git/config", aString4, function (err) { 
     
                 if(!err) {
                     console.log('config bitbucket ok->');errorNumber=0;
@@ -636,7 +636,7 @@ function formatLinkInfo(){
           setTimeout(function() {
             //your code to be executed after 1 second
             
-            fs.writeFile("alohabooster/.git/config", aString1, function (err) { 
+            fs.writeFile(".git/config", aString1, function (err) { 
     
                 if(!err) {
                     console.log('config github ok->');errorNumber=0;
@@ -662,7 +662,7 @@ function formatLinkInfo(){
           setTimeout(function() {
             //your code to be executed after 1 second
             
-            fs.writeFile("alohabooster/.git/config", aString2, function (err) { 
+            fs.writeFile(".git/config", aString2, function (err) { 
     
                 if(!err) {
                     console.log('config gitea ok->');errorNumber=0;
