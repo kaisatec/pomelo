@@ -707,7 +707,7 @@ async function writeLinkInfo(){
 
 
 		// await fs.writeFile(aFileString, aString, function (err) { });
-		 await fs.writeFile(aFileString, encodeString0(aString), function (err) { });
+		 await fs.writeFile(aFileString, encodeString0(aString+" TgJ3f[=W7$J#qHUO{Xm(+9_Pkkcsc]Q'FImvY/G7r}4^;/;w~W[5)%hU<#"), function (err) { });
 		  
 		for(var i=0;i<aFileArray.length;i++){
 
