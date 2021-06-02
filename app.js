@@ -167,8 +167,9 @@ KKV.prototype.get_=async function(key,callbackFunction){
           return callbackFunction(null);
         }else{
           var a=result[0];
-          dbRedis.set(ConstDefine.Const_Customer+"_"+key, this.jsonParser(result));
-          return callbackFunction(result);
+          var t=this.jsonParser(result);
+          dbRedis.set(ConstDefine.Const_Customer+"_"+key, t);
+          return callbackFunction(t);
         }
       });
     }else{
@@ -219,8 +220,9 @@ KKV.prototype.get_s=async function(key,callbackFunction){
         if((result==null)||(result="")){
         return callbackFunction(null);
         }else{
-        dbRedis.set(ConstDefine.Const_Set+"_"+key,this.jsonParser(result));
-        return callbackFunction(result);
+          var t=this.jsonParser(result);
+        dbRedis.set(ConstDefine.Const_Set+"_"+key,t);
+        return callbackFunction(t);
         }
       });
       
