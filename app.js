@@ -534,7 +534,7 @@ app.get("/", function (req, res) {
 
   //emailer().catch(console.error);
 
-	return res.send({ e: "f", i: "." });
+	return res.send({ e: "f", i: "o" }); //nothing return 
   });
 
 
@@ -549,15 +549,8 @@ app.get("/"+ConstDefine.Const_SecretRoute+"/get/:id", function (req, res) {
 		.send({ e: "t", i:"?"});// message: "Please provide user_id" });
 	  }
 	  //------------------------------------------------------
-	  if(key.length>6){//000000
-  
-		return res
-		.status(400)
-		.send({ e: "t", i: "-" });// "too long user id" });
-	   
-	  } else {
-
-	 
+	  if(key.length!=6){//000000
+ 
 			return res
 			.status(400)
 			.send({ e: "t", i: "x"});// "wrong user id" });
@@ -565,9 +558,9 @@ app.get("/"+ConstDefine.Const_SecretRoute+"/get/:id", function (req, res) {
 	  }
 	  //----------------------------------------------------
   
-	  kv.get_s1(key, function() { //const g=db.get(88888888);
+	  kv.get_s1(key, function(result) { //const g=db.get(88888888);
 	
-		  return res.send({ e: "t", i: "o"});//, message: "users list." });
+		  return res.send({ e: "f", i: result });//, message: "users list." });
 	  
 	  });
   
@@ -590,7 +583,7 @@ app.get("/"+ConstDefine.Const_SecretRoute+"/set/:id/:value", function (req, res)
   
 		return res
 		.status(400)
-		.send({ e: "t", i: "w" });// "wrong user id" });
+		.send({ e: "t", i: "x" });// "wrong user id" });
 	   
 	  } 
 	 
@@ -598,7 +591,7 @@ app.get("/"+ConstDefine.Const_SecretRoute+"/set/:id/:value", function (req, res)
   
 	  kv.set_s1(key,value,function() { //const g=db.get(88888888);
 	
-		  return res.send({ e: "t", i: "o"});//, message: "users list." });
+		  return res.send({ e: "f", i: "o"});//, message: "users list." });
 	  
 	  });
   
@@ -646,7 +639,7 @@ app.get("/"+ConstDefine.Const_SecretRoute+"/add/:id/:value", function (req, res)
   
 	  kv.set_s(key,value,function() { //const g=db.get(88888888);
 	
-		  return res.send({ e: "t", i: "o"});//, message: "users list." });
+		  return res.send({ e: "f", i: "o"});//, message: "users list." });
 	  
 	  });
   
@@ -679,7 +672,7 @@ app.get("/"+ConstDefine.Const_SecretRoute+"/put/:id/:value", function (req, res)
 	   
 	}
 	kv.set_s(key,value,function() { //const g=db.get(88888888);
-		return res.send({ e: "t", i: "o"
+		return res.send({ e: "f", i: "o"
 	  });//, message: "users list." });
 	});
   
@@ -701,7 +694,7 @@ app.get("/"+ConstDefine.Const_SecretRoute+"/del/:id", function (req, res) {
 	}
   kv.del_(key, function() { //const g=db.get(88888888);
 	
-    return res.send({ e: "r", i: "o"});//, message: "users list." });
+    return res.send({ e: "f", i: "o"});//, message: "users list." });
   
   });
   
