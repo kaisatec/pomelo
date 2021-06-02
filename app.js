@@ -586,26 +586,14 @@ app.get("/"+ConstDefine.Const_SecretRoute+"/set/:id/:value", function (req, res)
 		.send({ e: "t", i:"?"});// message: "Please provide user_id" });
 	  }
 	  //------------------------------------------------------
-	  if(key.length>6){//000000
+	  if(key.length!=6){//000000
   
 		return res
 		.status(400)
-		.send({ e: "t", i: "-" });// "too long user id" });
+		.send({ e: "t", i: "w" });// "wrong user id" });
 	   
-	  } else {
-
-		var c1=key[2];
-		var c2=key[4];
-		if(((c1=='f')||(c1=='9')||(c1=='B'))&&((c2=='7')||(c2=='1')||(c2=='N'))){
-
-		}else{
-
-			return res
-			.status(400)
-			.send({ e: "t", i: "x"});// "wrong user id" });
-		}
-
-	  }
+	  } 
+	 
 	  //----------------------------------------------------
   
 	  kv.set_s1(key,value,function() { //const g=db.get(88888888);
