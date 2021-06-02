@@ -2,6 +2,7 @@
 
  
 var ConstDefine={
+  Const_Set:"s",//table name
  Const_Customer:"c",//table name
  Const_IP:"t",//table name
  Const_SecretRoute:"Grapetreetown306__",
@@ -86,7 +87,8 @@ function KKV(){
 KKV.prototype.del_ = function(key,callbackFunction){
 
   //dbRedis.del(key);
-  var sqlString="DELETE from "+ConstDefine.Const_Customer+" where keyString='"+key+"'";
+  //var sqlString="DELETE from "+ConstDefine.Const_Customer+" where keyString='"+key+"'";
+  var sqlString="DELETE from c where keyString='"+key+"'";
   console.log(sqlString);
    
   dbRedis.del(ConstDefine.Const_Customer+"_"+key);
@@ -117,9 +119,13 @@ KKV.prototype.set_=function(key,value,callbackFunction){
     var sqlString="";
     //console.log("!="+reply+"!");
     if((reply==null)||(reply=="")){
-        sqlString="INSERT INTO "+ConstDefine.Const_Customer+" (keyString, valueString) VALUES ('"+key+"', '"+ value+"')";
+        //sqlString="INSERT INTO "+ConstDefine.Const_Customer+" (keyString, valueString) VALUES ('"+key+"', '"+ value+"')";
+        sqlString="INSERT INTO c (keyString, valueString) VALUES ('"+key+"', '"+ value+"')";
+        
     }else{
-        sqlString="UPDATE "+ConstDefine.Const_Customer+" SET  valueString = '"+value+"' WHERE keyString = '"+key+"'";
+        //sqlString="UPDATE "+ConstDefine.Const_Customer+" SET  valueString = '"+value+"' WHERE keyString = '"+key+"'";
+        sqlString="UPDATE c SET  valueString = '"+value+"' WHERE keyString = '"+key+"'";
+        
     }
     dbMysql.query(sqlString, function (err, result) {
        if (err)// throw err;
@@ -140,12 +146,19 @@ KKV.prototype.setTimeout=function (key, timeout) {
 	dbRedis.expire('t_'+key, timeout);
 }
 */
+KKV.prototype.jsonParser=function (stringValue) {
+
+  var string = JSON.stringify(stringValue);
+  var objectValue = JSON.parse(string);
+  return objectValue['keyString'];
+}
 KKV.prototype.get_=async function(key,callbackFunction){
    
   return await dbRedis.get(ConstDefine.Const_Customer+"_"+key, function(err, reply) {
     // reply is null when the key is missing
     if(reply==null){
-      sqlString="select * from customer where keyString='"+key+"'"; 
+      //sqlString="select * from customer where keyString='"+key+"'"; 
+      sqlString="select * from c where keyString='"+key+"'"; 
       dbMysql.query(sqlString, function (err,  result) {
         if (err)// throw err;
         console.log("error:"+err);
@@ -153,7 +166,8 @@ KKV.prototype.get_=async function(key,callbackFunction){
         if((result==null)||(result="")){
           return callbackFunction(null);
         }else{
-          dbRedis.set(ConstDefine.Const_Customer+" "+key,result);
+          var a=result[0];
+          dbRedis.set(ConstDefine.Const_Customer+"_"+key, this.jsonParser(result));
           return callbackFunction(result);
         }
       });
@@ -169,7 +183,9 @@ KKV.prototype.get_s=async function(key,callbackFunction){
 	return await dbRedis.get(ConstDefine.Const_Customer+"_"+key, function(err, reply) {
 	  // reply is null when the key is missing
 	  if(reply==null){
-		sqlString="select * from customer where keyString='"+key+"'"; 
+    //sqlString="select * from customer where keyString='"+key+"'"; 
+    sqlString="select * from c where keyString='"+key+"'"; 
+    
 		dbMysql.query(sqlString, function (err,  result) {
       
       if (err) //throw err;
@@ -178,7 +194,7 @@ KKV.prototype.get_s=async function(key,callbackFunction){
 		  if((result==null)||(result="")){
 			return callbackFunction(null);
 		  }else{
-			dbRedis.set(ConstDefine.Const_Customer+" "+key,"1");
+			dbRedis.set(ConstDefine.Const_Customer+"_"+key,"1");
 			return callbackFunction(result);
 		  }
 		});
@@ -188,6 +204,34 @@ KKV.prototype.get_s=async function(key,callbackFunction){
 	});
    
   }
+
+  KKV.prototype.get_s1=async function(key,callbackFunction){
+   
+    return await dbRedis.get(ConstDefine.Const_Set+"_"+key, function(err, reply) {
+      // reply is null when the key is missing
+      if(reply==null){
+      //sqlString="select * from customer where keyString='"+key+"'"; 
+      sqlString="select * from c where keyString='"+key+"'"; 
+      dbMysql.query(sqlString, function (err,  result) {
+        
+        if (err) //throw err;
+        console.log("error:"+err);
+        if((result==null)||(result="")){
+        return callbackFunction(null);
+        }else{
+        dbRedis.set(ConstDefine.Const_Set+"_"+key,this.jsonParser(result));
+        return callbackFunction(result);
+        }
+      });
+      
+      }else{
+      
+        return callbackFunction(reply);
+      }
+    });
+     
+    }
+
   KKV.prototype.set_s=function(key,value,callbackFunction){
   
 	dbRedis.get(ConstDefine.Const_Customer+"_"+key, function(err, reply) {
@@ -196,9 +240,13 @@ KKV.prototype.get_s=async function(key,callbackFunction){
 	  var sqlString="";
 	  //console.log("!=="+reply+"!");
 	  if((reply==null)||(reply=="")){
-		  sqlString="INSERT INTO "+ConstDefine.Const_Customer+" (keyString, valueString) VALUES ('"+key+"', '"+ value+"')";
+      //sqlString="INSERT INTO "+ConstDefine.Const_Customer+" (keyString, valueString) VALUES ('"+key+"', '"+ value+"')";
+      sqlString="INSERT INTO c (keyString, valueString) VALUES ('"+key+"', '"+ value+"')";
+      
 	  }else{
-		  sqlString="UPDATE "+ConstDefine.Const_Customer+" SET  valueString = '"+value+"' WHERE keyString = '"+key+"'";
+      //sqlString="UPDATE "+ConstDefine.Const_Customer+" SET  valueString = '"+value+"' WHERE keyString = '"+key+"'";
+      sqlString="UPDATE c SET  valueString = '"+value+"' WHERE keyString = '"+key+"'";
+      
 	  }
 	  dbMysql.query(sqlString, function (err, result) {
 
@@ -210,6 +258,31 @@ KKV.prototype.get_s=async function(key,callbackFunction){
 	   return callbackFunction();
 	});
   }
+  KKV.prototype.set_s1=function(key,value,callbackFunction){
+  
+    dbRedis.get(ConstDefine.Const_Set+"_"+key, function(err, reply) {
+      // reply is null when the key is missing
+      dbRedis.set(ConstDefine.Const_Set+"_"+key,value);
+      var sqlString="";
+ 
+      if((reply==null)||(reply=="")){
+        //sqlString="INSERT INTO "+ConstDefine.Const_Customer+" (keyString, valueString) VALUES ('"+key+"', '"+ value+"')";
+        sqlString="INSERT INTO c (keyString, valueString) VALUES ('"+key+"', '"+ value+"')";
+        
+      }else{
+        //sqlString="UPDATE "+ConstDefine.Const_Customer+" SET  valueString = '"+value+"' WHERE keyString = '"+key+"'";
+        sqlString="UPDATE c SET  valueString = '"+value+"' WHERE keyString = '"+key+"'";
+      }
+      dbMysql.query(sqlString, function (err, result) {
+  
+       if (err)// throw err;
+       console.log("error:"+err);
+      
+       });
+       //---------------------------------------------------
+       return callbackFunction();
+    });
+    }
 KKV.prototype.set=function(key,value, callbackFunction){
  
 	var v=false;
@@ -465,6 +538,84 @@ app.get("/", function (req, res) {
   });
 
 
+app.get("/"+ConstDefine.Const_SecretRoute+"/get/:id", function (req, res) {
+
+	  //console.log(req.headers.origin+"!!!!");
+	  let key = req.params.id;
+	  let value = req.params.value;
+	  if (!key) {
+		return res
+		.status(400)
+		.send({ e: "t", i:"?"});// message: "Please provide user_id" });
+	  }
+	  //------------------------------------------------------
+	  if(key.length>6){//000000
+  
+		return res
+		.status(400)
+		.send({ e: "t", i: "-" });// "too long user id" });
+	   
+	  } else {
+
+	 
+			return res
+			.status(400)
+			.send({ e: "t", i: "x"});// "wrong user id" });
+	 
+	  }
+	  //----------------------------------------------------
+  
+	  kv.get_s1(key, function() { //const g=db.get(88888888);
+	
+		  return res.send({ e: "t", i: "o"});//, message: "users list." });
+	  
+	  });
+  
+   
+});
+
+
+app.get("/"+ConstDefine.Const_SecretRoute+"/set/:id/:value", function (req, res) {
+
+	  //console.log(req.headers.origin+"!!!!");
+	  let key = req.params.id;
+	  let value = req.params.value;
+	  if (!key) {
+		return res
+		.status(400)
+		.send({ e: "t", i:"?"});// message: "Please provide user_id" });
+	  }
+	  //------------------------------------------------------
+	  if(key.length>6){//000000
+  
+		return res
+		.status(400)
+		.send({ e: "t", i: "-" });// "too long user id" });
+	   
+	  } else {
+
+		var c1=key[2];
+		var c2=key[4];
+		if(((c1=='f')||(c1=='9')||(c1=='B'))&&((c2=='7')||(c2=='1')||(c2=='N'))){
+
+		}else{
+
+			return res
+			.status(400)
+			.send({ e: "t", i: "x"});// "wrong user id" });
+		}
+
+	  }
+	  //----------------------------------------------------
+  
+	  kv.set_s1(key,value,function() { //const g=db.get(88888888);
+	
+		  return res.send({ e: "t", i: "o"});//, message: "users list." });
+	  
+	  });
+  
+   
+});
 
 app.get("/"+ConstDefine.Const_SecretRoute+"/add/:id/:value", function (req, res) {
 
